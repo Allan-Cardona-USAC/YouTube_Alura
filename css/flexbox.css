@@ -1,0 +1,147 @@
+/*Cabecera*/
+.cabecera__container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+}
+.cabecera__buscar__item{
+    display: none;
+}
+/*Seccion Superior*/
+.superior__seccion__container{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: scroll;
+    gap: 18px;
+}
+/* Menu lateral*/
+.menu__container{
+    position: fixed;
+    bottom: 0%;
+    height: 75px;
+    width: 100%;
+}
+/*ul*/
+.menu__lista{
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+   
+}
+/*Li*/
+.menu__lista li{
+    align-self: center;
+}
+.menu__itens{
+    display: flex;
+    flex-direction: column;
+    /*espacio entre ellos con gap*/
+    gap: 8px;
+}
+/**La Pseudo clase :nth-child() sirve para ocultar hermanos */
+.menu__lista:nth-child(2),
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4){
+    display: none;
+}
+
+/*Video*/
+/*Trabajamos con la etiqueta li por que queremos moficar la tarjetas*/
+.videos__item{
+    height: 303px;
+    width: 280px;
+    /* para poner un espacio proporcional usamos flex-grow y ponesmo 1 para que se bien distribuido*/
+    flex-grow: 1;;
+}
+/*modificar el ul*/
+.videos__container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/*Rodapie*/
+.rodapie__container{
+    display: flex;
+    /*flex-direction: column;
+    flex-wrap: wrap;*/
+    flex-flow: column wrap;
+    
+}
+
+@media(min-width: 834px){ 
+    /*Cabecera*/
+    .cabecera__buscar__item{
+        display: block
+    }
+    /*Menu Lateral Tablet*/
+    .menu__container{
+        left: 0;
+        height: auto;
+        width: 74px;
+        top: 80px;
+    }
+    /*ul*/
+    .menu__lista{
+        flex-direction: column;
+        /*flex-start: Alinea elementos a la parte superior del contenedor.*/
+        /* justify-content, la cual alinea elementos horizontalmente y acepta los siguientes valores:*/
+        justify-content: flex-start;
+        padding-top: 15px;
+        gap: 33px;
+    }
+    /*Rodapie*/
+    .rodapie__container{
+        justify-content: space-between;
+    }
+
+}
+/*@media para menu lateral de dispositivos desktop*/
+@media(min-width: 1440px){
+    .menu__container{
+        width: 239px;
+        overflow: scroll;
+    }
+    /**La Pseudo clase :nth-child() sirve para ocultar hermanos */
+    .menu__lista:nth-child(2),
+    .menu__lista:nth-child(3),
+    .menu__lista:nth-child(4){
+        /*display: none; se ocultan y con display:flex las mostramos*/
+        display: flex;
+    }
+    /*ul*/
+    .menu__lista{
+        height: auto;
+        padding: 20px 17px 20px 15px;
+        gap: 15px;
+    }
+    /*Organizar una lista especifica en este caso la 03*/
+    /*ul*/
+    .menu__lista:nth-child(3){
+        /*para invertir el orde en donde estan ubicados*/
+       flex-direction: column-reverse;
+    }
+    .menu__itens{
+        /*para ubicar uno del lado del otro*/
+        flex-direction: row;
+        /*espacio entre ellos con gap*/
+        gap: 24px;
+        /*centrar el texto a  la misma altura del icon*/
+        align-items: center;
+    }
+    /*Modificamos el orden de los hijos dentro de container*/
+    .videojuegos{
+        order: 3;
+    }
+    .peliculas{
+        order: 2;
+    }
+    .premium{
+        order: 1;
+    }
+}
+
